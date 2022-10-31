@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>サンプル</title>
+</head>
+<body>
+
+<p>サンプルページです。</p>
+
+<div>
+<label><input type="range" step="10" id="volumeSlider">音量</label>
+</div>
+
+<div>
+<input type="button" value="Check" id="checkButton">
+</div>
+
+<script>
+function butotnClick(){
+  console.log('ボリュームは ' + volumeSlider.value + ' です');
+}
+
+let volumeSlider = document.getElementById('volumeSlider');
+volumeSlider.value = "30";
+
+let checkButton = document.getElementById('checkButton');
+checkButton.addEventListener('click', butotnClick);
+</script>
+
+</body>
+</html>
