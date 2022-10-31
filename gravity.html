@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>decay</title>
+
+<style>
+*{ margin: 0px; padding: 0px; }
+#canvas { background-color: #000; }
+</style>
+
+<head>
+<body>
+
+<canvas  id="canvas" width="1000" height="500">
+ブラウザが対応しておりません。
+</canvas>
+
+<script>
+
+window.addEventListener('load', draw, false);
+
+function draw(){
+    var x = 500, y = 0; //ボールの初期位置
+    var vy =0; //y軸方向の初期速度
+    var R = 20; //ボールの半径
+    var GRAVITY = 1; //重力
+    var FRICTION = 0.77; //跳ね返り係数
+    
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    
+    function loop() {
+        ctx.clearRect(0 ,0, canvas.width, canvas.height); //キャンバス上の図形をクリアにする
+        
+        vy += GRAVITY; //重力による速度の変化
+        y += vy; //ｙ座標を動かす
+        
+        if(y >canvas.height-R){ //地面に到達したら
+            vy *= -1* FRICTION; //速度を反転し減速
+            y = canvas.height-R; //座標を画面内に戻す
+            if (Math.abs(vy) < GRAVITY) { //速度がある程度小さくなったら強制的に0にする
+                vy = 0;
+            }
+        }
+        
+        ctx.beginPath();
+        ctx.fillStyle = 'green';
+        ctx.arc(x, y, R, 0, Math.PI*2.0, true);
+        ctx.fill();
+        requestAnimationFrame(loop);
+    }
+       
+    loop();
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+.parent{
+  display: flex;
+  flex-wrap: wrap;   //このように親要素に指定します
+  width: 600px;
+}
+
+.child{
+  box-sizing:border-box;
+  border: 5px solid white;
+  flex-basis: 200px;  //200pxの要素が3つ並ぶと600pxを超え、flex-wrapが動作します
+  padding: 10px;
+  
+}

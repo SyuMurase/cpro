@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <script src="js/arc.js"></script>
+  <meta charset="utf-8">
+  <title>スライダー</title>
+  <style>
+  canvas {
+      background: black;
+  }
+  </style>
+</head>
+
+<body>
+  <input type="range" name="example" min="1" max="5" step="1" value="5">
+  
+  <canvas id="mycanvas" width="500" height="250">
+    Canvasに対応したブラウザを使ってください。
+  </canvas>
+
+  <script>
+  var img = new Image();
+
+    img.onload = (function(){
+
+       var canvas = document.getElementById('logo');
+
+       // var ctx = canvas.getContext('2d');
+
+       ctx.drawImage(img, 0, 0);
+    });
+
+    img.src = "logo.PNG";
+  </script>
+</body>
+  
+
+</html>
